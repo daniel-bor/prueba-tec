@@ -20,8 +20,8 @@ class Cliente extends Model
         'fecha_ingreso'
     ];
 
-    protected $hidden = [
+    /*protected $hidden = [
         'created_at',
         'updated_at'
-    ];
+    ];*/
 }

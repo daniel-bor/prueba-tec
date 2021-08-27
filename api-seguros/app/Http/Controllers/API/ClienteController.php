@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use APP\Http\Requests\GuardarClienteRequest;
+use App\Http\Requests\ActualizarClienteRequest;
+use App\Http\Requests\GuardarClienteRequest;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class ClienteController extends Controller
         return response()->json([
             'res' => true,
             'msg' => 'Cliente Guardado Correctamente'
-        ]);
+        ], 200);
     }
 
     /**
@@ -40,9 +41,12 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cliente $cliente)
     {
-        //
+        return response()->json([
+            'res' => true,
+            'cliente' => $cliente
+        ], 200);
     }
 
     /**
@@ -52,9 +56,13 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ActualizarClienteRequest $request, Cliente $cliente)
     {
-        //
+        $cliente->update($request->all());
+        return response()->json([
+            'res' => true,
+            'msg' => 'Cliente Actualizado Correctamente'
+        ], 200);
     }
 
     /**
@@ -63,8 +71,12 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return response()->json([
+            'res' => true,
+            'msg' => 'Cliente Eliminado Correctamente'
+        ], 200);
     }
 }

@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Contracts\Service\Attribute\Required;
 
-class GuardarClienteRequest extends FormRequest
+class ActualizarClienteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,8 +27,8 @@ class GuardarClienteRequest extends FormRequest
             "nombre" => "required",
             "apellido" => "required",
             "telefono" => "required",
-            "nit" => "required|unique:clientes,nit",
-            "cui" => "required|unique:clientes,cui",
+            "cui" => "required|unique:clientes,cui," . $this->route('cliente')->id,
+            "nit" => "required",
             "direccion" => "required",
             "fecha_nacimiento" => "required",
             "fecha_ingreso" => "required"
