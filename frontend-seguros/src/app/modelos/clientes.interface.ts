@@ -1,4 +1,4 @@
-export interface Clientes{
+export interface ClientesI{
     id:string,
     nombre:string,
     apellido:string,

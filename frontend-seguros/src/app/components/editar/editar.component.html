@@ -1,1 +1,114 @@
-<p>editar works!</p>
+<div class="bg-gray-200">
+    <div class="min-w-screen min-h-screen flex items-center justify-center px-5 py-5">
+        <div class="bg-gray-100 text-gray-700 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
+            <div class="md:flex w-full">
+                <div class="hidden zoom-picture md:block w-1/2 bg-white">
+                    <img src="assets/images/poliza.jpg" alt="Imagen_Poliza" class="h-full">
+                </div>
+                <div class="w-full md:w-1/2 py-2 px-5 md:px-10">
+                    <div class="text-center mb-4">
+                        <h1 class="font-bold text-3xl text-black mt-3">Edicion de Registro</h1>
+                        <p class="text-md mt-2 font-bold">Cambia la informacion que desees modificar.</p>
+                    </div>
+                    <div>
+                        <form [formGroup]="editarPoliza" (ngSubmit)="putForm(editarPoliza.value)">
+                            <div class="flex -mx-3">
+                                <div class="w-full px-3 mb-5">
+                                    <label for="" class="text-xs font-semibold px-1">Nombres</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <select formControlName="cliente_id" required
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-500">
+                                            <option value="" disabled selected>Seleccione</option>
+                                            <option *ngFor="let cliente of dataClientes" value="{{cliente.id}}">
+                                                {{cliente.nombre + " " +cliente.apellido}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex -mx-3">
+                                <div class="w-full px-3 mb-5">
+                                    <label for="" class="text-xs font-semibold px-1">Producto</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <i class="fab fa-product-hunt"></i>
+                                        </div>
+                                        <select formControlName="producto_id" required
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-500">
+                                            <option value="" disabled selected>Seleccione</option>
+                                            <option value="1">Vehiculos Automotores
+                                            </option>
+                                            <option value="2">Seguros de Vida
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex -mx-3">
+                                <div class="w-full px-3 mb-5">
+                                    <label for="" class="text-xs font-semibold px-1">Fecha de Inicio</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <i class="far fa-calendar"></i>
+                                        </div>
+                                        <input type="date" formControlName="fecha_inicio" required
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-500">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex -mx-3">
+                                <div class="w-full px-3 mb-5">
+                                    <label for="" class="text-xs font-semibold px-1">Fecha de Finalizacion</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <i class="far fa-calendar"></i>
+                                        </div>
+                                        <input type="date" formControlName="fecha_fin" required
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-500">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex -mx-3">
+                                <div class="w-full px-3 mb-2">
+                                    <label for="" class="text-xs font-semibold px-1">Estado</label>
+                                    <div class="flex justify-around">
+                                        <div>
+                                            <i class="fas fa-unlock"></i>
+                                            <label for="activo" class="mx-4 cursor-pointer">Activo</label>
+                                            <input type="radio" formControlName="estado" value="activo" id="activo">
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-lock"></i>
+                                            <label for="inactivo" class="mx-4 cursor-pointer">Inactivo</label>
+                                            <input type="radio" formControlName="estado" value="inactivo" id="inactivo"
+                                                class="">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex -mx-3">
+                                <div class="w-full px-3 mt-2">
+                                    <input type="submit" value="Guardar" name="registrar"
+                                        class="block w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold cursor-pointer">
+                                </div>
+                                <div class="w-full px-3 mb-5">
+                                    <a (click)="volver()"
+                                        class="block text-center my-2 w-full max-w-xs mx-auto bg-gray-400 hover:bg-red-400 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold cursor-pointer">Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

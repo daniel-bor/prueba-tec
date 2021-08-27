@@ -1,1 +1,81 @@
-<p>polizas works!</p>
+<div class="py-14">
+    <p class="text-center text-4xl font-bold my-4">Registro de Polizas</p>
+    <div class="flex justify-center font-sans">
+        <div class="w-full lg:w-5/6">
+            <div class="bg-white shadow-md rounded-lg shadow-lg my-6">
+                <table class="min-w-max w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-200 text-gray-600 cursor-default uppercase text-sm ">
+                            <th class="py-3 px-6 text-left">Id</th>
+                            <th class="py-3 px-6 text-left">Nombre</th>
+                            <th class="py-3 px-6 text-left">Apellido</th>
+                            <th class="py-3 px-6 text-left">Producto</th>
+                            <th class="py-3 px-6 text-left">Estado</th>
+                            <th class="py-3 px-6 text-left">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 text-sm font-light">
+                        <tr *ngFor="let poliza of polizas" class="border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left">
+                                <div class="flex items-center">
+                                    <span class="font-medium">{{poliza.id}}</span>
+                                </div>
+                            </td>
+                            <td class="py-3 px-6 text-left">
+                                <div class="flex items-center">
+                                    <div class="">
+                                        <span>{{poliza.nombre}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3 px-6 text-left">
+                                <div class="flex items-center">
+                                    <div class="">
+                                        <span>{{poliza.apellido}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3 px-6 text-left">
+                                <div class="flex items-center">
+                                    <div class="">
+                                        <span>{{poliza.codigo}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3 px-6 text-left">
+                                <div class="flex items-center">
+                                    <div class="">
+                                        <span>{{poliza.estado}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td id="acciones2" class="py-3 text-center">
+                                <div class="flex item-center justify-left">
+                                    <div class="mx-4">
+                                        <i (click)="editarPoliza(poliza.id)"
+                                            class="fas fa-pencil-alt text-xl cursor-pointer transform hover:text-blue-500 hover:scale-110"></i>
+                                    </div>
+                                    <div class="mx-4">
+                                        <i
+                                            class="fas fa-trash text-xl cursor-pointer transform hover:text-red-500 hover:scale-110"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center my-10">
+        <div class="mx-10">
+            <button id="btn1" (click)="volver()"
+                class="border border-gray-300 w-48 py-2 rounded text-2xl hover:bg-blue-300 hover:shadow-lg transition duration-500">Volver</button>
+        </div>
+        <div class="mx-10">
+            <button id="btn2" (click)="cambiarFlag()"
+                class="border border-gray-300 w-48 py-2 rounded text-2xl hover:bg-blue-300 hover:shadow-lg transition duration-500">Imprimir</button>
+        </div>
+    </div>
+</div>
