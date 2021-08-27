@@ -14,7 +14,7 @@ class CreatePolizasTable extends Migration
     public function up()
     {
         Schema::create('polizas', function (Blueprint $table) {
-            $table->id('numero');
+            $table->id();
             $table->unsignedBigInteger('producto_id')->nullable();
             $table->unsignedBigInteger('cliente_id')->nullable();
             $table->string('fecha_inicio');

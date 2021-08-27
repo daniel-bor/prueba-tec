@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ActualizarClienteRequest;
 use App\Http\Requests\GuardarClienteRequest;
+use App\Http\Resources\ClienteResource;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return Cliente::all();
+        return ClienteResource::collection(Cliente::all());
     }
 
     /**
