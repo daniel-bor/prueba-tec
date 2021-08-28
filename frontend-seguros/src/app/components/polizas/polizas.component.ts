@@ -26,7 +26,9 @@ export class PolizasComponent implements OnInit {
     this.router.navigate(['editar',id]);
   }
 
-
+  eliminarPoliza(id:any){
+    console.log('eliminar'+id);
+  }
 
   volver(){
     this.router.navigate([
