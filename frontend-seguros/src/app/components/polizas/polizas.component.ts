@@ -27,7 +27,11 @@ export class PolizasComponent implements OnInit {
   }
 
   eliminarPoliza(id:any){
-    console.log('eliminar'+id);
+    this.apiSvc.deletePoliza(id).subscribe(data=>{
+      console.log(data);
+      location.reload();
+    });
+    
   }
 
   volver(){

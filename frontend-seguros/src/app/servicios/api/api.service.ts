@@ -39,4 +39,9 @@ export class ApiService {
     return this.http.put<ResponseI>(this.singlePolizaUrl + id,form);
   }
 
+  deletePoliza(id:any):Observable<ResponseI>{
+    return this.http.delete<ResponseI>(this.singlePolizaUrl + id);
+  }
+
+
 }
