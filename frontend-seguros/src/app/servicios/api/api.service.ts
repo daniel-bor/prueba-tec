@@ -35,6 +35,10 @@ export class ApiService {
     return this.http.get(this.singlePolizaUrl + id);
   }
 
+  postPoliza(form:NuevoI):Observable<ResponseI>{
+    return this.http.post<ResponseI>(this.polizasUrl,form);
+  }
+
   putPoliza(form:PolizaI,id:any):Observable<ResponseI>{
     return this.http.put<ResponseI>(this.singlePolizaUrl + id,form);
   }

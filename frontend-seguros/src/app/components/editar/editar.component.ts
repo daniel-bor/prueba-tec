@@ -19,6 +19,7 @@ export class EditarComponent implements OnInit {
   dataClientes:ClientesI[]=[];
   poliza:PolizasI[]=[];
   polizaID = this.activedRouter.snapshot.paramMap.get('id');
+
   editarPoliza = new FormGroup({
      producto_id:new FormControl(''),
      cliente_id:new FormControl(''),
@@ -31,7 +32,7 @@ export class EditarComponent implements OnInit {
     let polizaId = this.activedRouter.snapshot.paramMap.get('id');
 
     this.api.getSinglePoliza(polizaId).subscribe(data=>{
-       this.dataPoliza= data['poliza'];
+       this.dataPoliza = data['poliza'];
        this.editarPoliza.setValue({
          'producto_id':this.dataPoliza?.producto_id,
          'cliente_id':this.dataPoliza?.cliente_id,

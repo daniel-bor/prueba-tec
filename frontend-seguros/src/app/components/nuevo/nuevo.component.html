@@ -1,4 +1,4 @@
-<div class="bg-gray-200">
+<div class="background h-screen">
     <div class="min-w-screen min-h-screen flex items-center justify-center px-5 py-5">
         <div class="bg-gray-100 text-gray-700 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
             <div class="md:flex w-full">
@@ -11,7 +11,7 @@
                         <p class="text-md mt-2 font-bold">Completa la informacion para crear una nueva poliza</p>
                     </div>
                     <div>
-                        <form [formGroup]="nuevoForm" (ngSubmit)="onNuevo(nuevoForm.value)">
+                        <form [formGroup]="nuevaPoliza" (ngSubmit)="postForm(nuevaPoliza.value)">
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
                                     <label for="" class="text-xs font-semibold px-1">Nombres</label>
@@ -20,10 +20,11 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="fas fa-user"></i>
                                         </div>
-                                        <select formControlName="cliente" required
+                                        <select formControlName="cliente_id" required
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-500">
                                             <option value="" disabled selected>Seleccione</option>
-                                            <option value="6">Nombre</option>
+                                            <option *ngFor="let cliente of dataClientes" value="{{cliente.id}}">
+                                                {{cliente.nombre+" "+cliente.apellido}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -36,10 +37,11 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="fab fa-product-hunt"></i>
                                         </div>
-                                        <select formControlName="producto" required
+                                        <select formControlName="producto_id" required
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-500">
                                             <option value="" disabled selected>Seleccione</option>
-                                            <option value="2">Nombre</option>
+                                            <option value="1">Vehiculos Automotores</option>
+                                            <option value="2">Seguros de Vida</option>
                                         </select>
                                     </div>
                                 </div>
@@ -52,7 +54,7 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="far fa-calendar"></i>
                                         </div>
-                                        <input type="date" formControlName="fechaInicio" required
+                                        <input type="date" formControlName="fecha_inicio" required
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-500">
                                     </div>
                                 </div>
@@ -65,7 +67,7 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="far fa-calendar"></i>
                                         </div>
-                                        <input type="date" formControlName="fechaFinal" required
+                                        <input type="date" formControlName="fecha_fin" required
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-blue-500">
                                     </div>
                                 </div>
@@ -77,12 +79,12 @@
                                         <div>
                                             <i class="fas fa-unlock"></i>
                                             <label for="activo" class="mx-4 cursor-pointer">Activo</label>
-                                            <input type="radio" formControlName="estado" value="activo" id="activo">
+                                            <input type="radio" formControlName="estado" value="ACTIVO" id="activo">
                                         </div>
                                         <div>
                                             <i class="fas fa-lock"></i>
                                             <label for="inactivo" class="mx-4 cursor-pointer">Inactivo</label>
-                                            <input type="radio" formControlName="estado" value="inactivo" id="inactivo"
+                                            <input type="radio" formControlName="estado" value="INACTIVO" id="inactivo"
                                                 class="">
                                         </div>
 
@@ -96,7 +98,7 @@
                                         class="block w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold cursor-pointer">
                                 </div>
                                 <div class="w-full px-3 mb-5">
-                                    <a href="./index.html"
+                                    <a (click)="volver()"
                                         class="block text-center my-2 w-full max-w-xs mx-auto bg-gray-400 hover:bg-red-400 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold cursor-pointer">Cancelar</a>
                                 </div>
                             </div>

@@ -1,7 +1,7 @@
 export interface NuevoI{
-    cliente:number,
-    producto:number,
-    fechaInicio:string,
-    fechaFinal:string,
+    cliente_id:number,
+    producto_id:number,
+    fecha_inicio:string,
+    fecha_fin:string,
     estado:string
 }

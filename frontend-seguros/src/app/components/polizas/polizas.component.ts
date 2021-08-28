@@ -40,6 +40,12 @@ export class PolizasComponent implements OnInit {
     ]);
   }
 
+  irNuevo(){
+    this.router.navigate([
+      'nuevo'
+    ]);
+  }
+
 
 
   flag:boolean = false;
